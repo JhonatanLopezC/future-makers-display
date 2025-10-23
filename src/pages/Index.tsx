@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ImageIcon, VideoIcon, MessageSquare, FileText, Languages, Home } from "lucide-react";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const projects = [
   {
@@ -10,6 +11,7 @@ const projects = [
     icon: ImageIcon,
     tags: ["IA", "Imágenes", "Editor"],
     color: "text-blue-500",
+    link: "https://leyderleon70-del.github.io/Editor-imagen/Index.html",
   },
   {
     id: 2,
@@ -18,14 +20,16 @@ const projects = [
     icon: VideoIcon,
     tags: ["IA", "Videos", "Multimedia"],
     color: "text-purple-500",
+    link: "https://ena0405101111-sketch.github.io/Editor-video/",
   },
   {
     id: 3,
-    title: "ChatBot Amigurumis",
+    title: "ChatBoot Amigurumis",
     description: "Asistente virtual inteligente para la venta de amigurumis, con recomendaciones personalizadas y atención al cliente automatizada.",
     icon: MessageSquare,
     tags: ["ChatBot", "Ventas", "E-commerce"],
     color: "text-pink-500",
+    link: "https://bot-kappa-jet.vercel.app/",
   },
   {
     id: 4,
@@ -55,13 +59,14 @@ const projects = [
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen relative overflow-hidden">
+      <AnimatedBackground />
       <div className="container mx-auto px-4 py-12">
-        <header className="mb-12 text-center">
-          <h1 className="mb-4 text-5xl font-bold text-foreground">
+        <header className="mb-12 text-center relative z-10">
+          <h1 className="mb-4 text-5xl font-bold text-white drop-shadow-lg">
             Proyectos de Estudiantes
           </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-white/80 max-w-2xl mx-auto drop-shadow-md">
             Descubre las innovadoras aplicaciones desarrolladas por nuestros talentosos estudiantes,
             combinando creatividad y tecnología de vanguardia.
           </p>
@@ -70,33 +75,37 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project) => {
             const Icon = project.icon;
+            const CardWrapper = project.link ? 'a' : 'div';
+            const cardProps = project.link ? { href: project.link, target: '_blank', rel: 'noopener noreferrer' } : {};
+            
             return (
-              <Card
-                key={project.id}
-                className="group hover:shadow-lg transition-all duration-300 hover:-translate-y-1 border-border"
-              >
+              <CardWrapper key={project.id} {...cardProps}>
+                <Card
+                  className="group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 cursor-pointer bg-slate-800/90 border-slate-600/40 shadow-xl text-white"
+                >
                 <CardHeader>
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`p-3 rounded-lg bg-accent ${project.color}`}>
+                    <div className={`p-3 rounded-lg bg-white/20 ${project.color}`}>
                       <Icon className="w-6 h-6" />
                     </div>
-                    <Badge variant="secondary">{project.id}</Badge>
+                    <Badge className="bg-white/20 text-white border-white/30">{project.id}</Badge>
                   </div>
-                  <CardTitle className="text-xl mb-2">{project.title}</CardTitle>
-                  <CardDescription className="text-sm">
+                  <CardTitle className="text-xl mb-2 text-white font-semibold">{project.title}</CardTitle>
+                  <CardDescription className="text-sm text-gray-200">
                     {project.description}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs">
+                      <Badge key={tag} className="text-xs bg-white/10 text-white border-white/30 hover:bg-white/20">
                         {tag}
                       </Badge>
                     ))}
                   </div>
                 </CardContent>
-              </Card>
+                </Card>
+              </CardWrapper>
             );
           })}
         </div>
