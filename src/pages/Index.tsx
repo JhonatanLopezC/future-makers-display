@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ImageIcon, VideoIcon, MessageSquare, FileText, Languages, Home } from "lucide-react";
+import { ImageIcon, VideoIcon, MessageSquare, FileText, Languages, Home, MapPin, Lightbulb, Globe } from "lucide-react";
 import AnimatedBackground from "@/components/AnimatedBackground";
 
 const projects = [
@@ -38,6 +38,7 @@ const projects = [
     icon: FileText,
     tags: ["Educación", "DBA", "Generador"],
     color: "text-green-500",
+    link: "https://generador-dba-educativo.vercel.app/",
   },
   {
     id: 5,
@@ -46,6 +47,7 @@ const projects = [
     icon: Languages,
     tags: ["Educación", "Idiomas", "Aprendizaje"],
     color: "text-orange-500",
+    link: "https://interactive-learning-eight.vercel.app/",
   },
   {
     id: 6,
@@ -54,6 +56,34 @@ const projects = [
     icon: Home,
     tags: ["IA", "Arquitectura", "3D"],
     color: "text-cyan-500",
+    link: "https://planos-3d.vercel.app/",
+  },
+  {
+    id: 7,
+    title: "Recomendador Turístico",
+    description: "Sistema inteligente de recomendaciones turísticas que sugiere destinos, actividades y experiencias personalizadas basadas en preferencias del usuario.",
+    icon: MapPin,
+    tags: ["Turismo", "Recomendaciones", "IA"],
+    color: "text-emerald-500",
+    link: "https://turismo-hapyezfbcbxczyybxhbtkr.streamlit.app/",
+  },
+  {
+    id: 8,
+    title: "Generador de Nombres Creativos",
+    description: "Herramienta innovadora que genera nombres creativos y únicos para proyectos, empresas, productos o cualquier idea que necesite una identidad memorable.",
+    icon: Lightbulb,
+    tags: ["Creatividad", "Generador", "Nombres"],
+    color: "text-yellow-500",
+    link: "https://ankladigital.com/constrayumos-juntos/",
+  },
+  {
+    id: 9,
+    title: "Geo Explora Putumayo",
+    description: "Plataforma interactiva de exploración geográfica del departamento de Putumayo, con mapas interactivos, información cultural y recursos educativos.",
+    icon: Globe,
+    tags: ["Geografía", "Putumayo", "Exploración"],
+    color: "text-teal-500",
+    link: "https://putumayo-explora-geo.vercel.app/",
   },
 ];
 
